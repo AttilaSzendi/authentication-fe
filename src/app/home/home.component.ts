@@ -31,18 +31,19 @@ export class HomeComponent {
   housingService: HousingService = inject(HousingService);
 
   constructor() {
-    this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
-      this.housingLocationList = housingLocationList;
-      this.filteredLocationList = housingLocationList;
+    this.housingService.getAllHousingLocations().then((response: { data: HousingLocation[] }) => {
+      this.housingLocationList = response.data;
+      this.filteredLocationList = response.data;
     });
   }
+
 
   filterResults(text: string) {
     if (!text) {
       this.filteredLocationList = this.housingLocationList;
       return;
     }
-  
+
     this.filteredLocationList = this.housingLocationList.filter(
       housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     );

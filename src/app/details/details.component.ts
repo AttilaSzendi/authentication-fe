@@ -15,10 +15,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   template: `
   <article>
     <img class="listing-photo" [src]="housingLocation?.photo"
-      alt="Exterior photo of {{housingLocation?.name}}"/>
+      alt="Exterior photo of {{housingLocation?.address}}"/>
     <section class="listing-description">
-      <h2 class="listing-heading">{{housingLocation?.name}}</h2>
-      <p class="listing-location">{{housingLocation?.city}}, {{housingLocation?.state}}</p>
+      <h2 class="listing-heading">{{housingLocation?.address}}</h2>
+      <p class="listing-location">{{housingLocation?.city}}, {{housingLocation?.country}}</p>
     </section>
     <section class="listing-features">
       <h2 class="section-heading">About this housing location</h2>
